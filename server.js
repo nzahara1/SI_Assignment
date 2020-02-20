@@ -9,7 +9,7 @@ app.use(cors())
 app.get('/', (req, res) => {
     axios.get(' https://6mazwrrnbd.execute-api.us-east-1.amazonaws.com/default/hello-world-python')
       .then(function (response) {
-          res.send('Hello World!')
+          res.send(response.data)
       })
       .catch(function (error) {
         console.log(error);
