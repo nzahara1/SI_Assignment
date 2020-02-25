@@ -7,15 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <button onClick = "callApi()">Call API</button><br>
+    {{/* <button onClick = "callApi()">Call API</button><br> */}}
+    <div id = content></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
     <script>
-        function callApi() {
+        window.setInterval(function () {
             axios.get('http://165.22.32.33:3000')
             .then(resp => {
                 console.log(resp);
-            });
-        }
+                document.getElementById('content').innerHTML = JSON.stringify(resp);
+            });}, 10000);
     </script>
 </body>
 </html>
